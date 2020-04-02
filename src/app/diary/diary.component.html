@@ -1,0 +1,37 @@
+<div class="container"> 
+<h1>MY DIARY</h1>
+<hr> 
+
+<div class="row">
+    <div class="col-md-6"> 
+
+    <div *ngFor = 'let diary of diaries ; let i = index'>
+        <h4 id ={{i}} > {{diary.name}} due on {{diary.completeDate|date}}</h4>
+        <button (click) = 'toggleDetails(i)' class="btn btn-primary">Toggle Details</button>
+        <div *ngIf = 'diary.showDescription'> 
+        <app-diary-detail  [diary] ='diary' (isComplete) = 'deleteDiary($event,i)'></app-diary-detail>
+        </div>
+    </div>
+
+     </div> 
+     <div class="col-md-6"> 
+        
+        <app-diary-form (addDiary) = "addNewDiary($event)"></app-diary-form>
+    </div> 
+</div>
+</div>
+
+
+
+
+
+<!-- <h1>My Goals</h1>
+<hr>
+<ul>
+    <div *ngFor='let goal of goals;let i = index'>
+        <li>{{diary.name}}</li>
+        <button (click)='toggleDetails(i)'>Toggle Details</button>
+        <app-diary-detail *ngIf='goal.showDescription' [diary]='diary'></app-diary-detail>
+    </div>
+</ul>
+<p *ngIf='goals.length > 5'>You have too many goals</p> -->
