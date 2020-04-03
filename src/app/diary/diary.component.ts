@@ -7,8 +7,11 @@ import { tick } from '@angular/core/testing';
   templateUrl: './diary.component.html',
   styleUrls: ['./diary.component.css']
 })
+
 export class DiaryComponent implements OnInit { 
+
   myDate = Date.now();
+  
   diaries: Diary[] = [
     new Diary(1, 'I had a stomach ache', 'I woke up in the morning and my stomach was in pain', new Date(2020, 4, 31)),
     new Diary(2, 'Doing my chores', 'I have to clean my room and wash the utensils', new Date(2020, 5, 7)),
